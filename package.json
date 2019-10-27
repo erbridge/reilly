@@ -1,0 +1,38 @@
+{
+  "name": "robin",
+  "version": "0.0.1",
+  "description": "Check conversational English for insensitive language",
+  "repository": "erbridge/robin",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:clean": "npm run clean && npm run build",
+    "clean": "rm -r lib",
+    "test": "jest",
+    "prepare": "npm run build:clean"
+  },
+  "dependencies": {
+    "retext-english": "^3.0.3",
+    "retext-equality": "^4.2.0",
+    "unified": "^8.4.1",
+    "vfile": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.20",
+    "@types/node": "^12.11.7",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  },
+  "husky": {
+    "pre-commit": "pretty-quick --staged"
+  }
+}
