@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+- Internal refactoring
+
 ## [0.0.3] - 2019-10-27
 
 ### Fixed

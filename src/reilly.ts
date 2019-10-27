@@ -6,7 +6,7 @@ import remarkParse from "remark-parse";
 import remark2retext from "remark-retext";
 import english from "retext-english";
 import equality from "retext-equality";
-import unified from "unified";
+import unified, { Processor } from "unified";
 import vfile, { VFile } from "vfile";
 
 import allPresets from "./presets";
@@ -17,10 +17,11 @@ export type ReillySettings = {
   ignore?: string[];
 };
 
-const reilly = async (
-  text: string,
-  { presets = [], enable = [], ignore = [] }: ReillySettings = {}
-): Promise<VFile> => {
+const parseSettings = ({
+  presets = [],
+  enable = [],
+  ignore = []
+}: ReillySettings = {}): ReillySettings => {
   if (presets && presets.length > 0) {
     const presetObjects = presets.map(preset => allPresets[preset]);
 
@@ -39,7 +40,14 @@ const reilly = async (
     );
   }
 
-  const processor = unified()
+  return { enable, ignore };
+};
+
+const makeMarkdownProcessor = ({
+  enable,
+  ignore
+}: ReillySettings): Processor => {
+  return unified()
     .use(remarkParse)
     .use(
       remark2retext,
@@ -53,7 +61,14 @@ const reilly = async (
       enable,
       source: ["retext-equality"]
     });
+};
 
+const reilly = async (
+  text: string,
+  settings?: ReillySettings
+): Promise<VFile> => {
+  const { enable, ignore } = parseSettings(settings);
+  const processor = makeMarkdownProcessor({ enable, ignore });
   const file = vfile(text);
   const tree = processor.parse(file);
 
