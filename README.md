@@ -76,12 +76,8 @@ Reilly understands the following properties in its `settings` argument:
   reilly(text, { ignore: ["boogeyman"] });
   ```
 
-  A list of phrases to ignore, even when they would normally be caught by an
-  enabled rule.
-
-  Currently supported rules:
-
-  - [`retext-equality`](https://github.com/retextjs/retext-equality/blob/master/rules.md)
+  A list of "not ok" phrases to ignore, even when they would normally be caught
+  by an enabled rule.
 
 ## Related
 
