@@ -1,3 +1,6 @@
+import compact from "lodash/compact";
+import flatten from "lodash/flatten";
+import uniq from "lodash/uniq";
 import messageControl from "remark-message-control";
 import remarkParse from "remark-parse";
 import remark2retext from "remark-retext";
@@ -6,15 +9,36 @@ import equality from "retext-equality";
 import unified from "unified";
 import vfile, { VFile } from "vfile";
 
+import allPresets from "./presets";
+
 export type RobinSettings = {
+  presets?: (keyof typeof allPresets)[];
   enable?: string[];
   ignore?: string[];
 };
 
 const robin = async (
   text: string,
-  { enable = [], ignore = [] }: RobinSettings = {}
+  { presets = [], enable = [], ignore = [] }: RobinSettings = {}
 ): Promise<VFile> => {
+  if (presets && presets.length > 0) {
+    const presetObjects = presets.map(preset => allPresets[preset]);
+
+    enable = uniq(
+      compact([
+        ...flatten(presetObjects.map(preset => preset.enable)),
+        ...enable
+      ])
+    );
+
+    ignore = uniq(
+      compact([
+        ...flatten(presetObjects.map(preset => preset.ignore)),
+        ...ignore
+      ])
+    );
+  }
+
   const processor = unified()
     .use(remarkParse)
     .use(

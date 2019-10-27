@@ -111,3 +111,44 @@ it("ignores rule violations matching phrases in the ignore setting's list, case 
     })
   ).resolves.toMatchInlineSnapshot(`Array []`);
 });
+
+it("uses the presets in the preset setting's list", async () => {
+  await expect(
+    getRobinMessages(
+      [
+        "The **boogeyman** is coming.",
+        "_The boogeywoman is coming._",
+        "Better stay sane and avoid the bony bits!"
+      ],
+      {
+        presets: ["ablism"]
+      }
+    )
+  ).resolves.toMatchInlineSnapshot(`
+          Array [
+            [3:13-3:17: \`sane\` may be insensitive, use \`correct\`, \`adequate\`, \`sufficient\`, \`consistent\`, \`valid\`, \`coherent\`, \`sensible\`, \`reasonable\` instead],
+          ]
+        `);
+});
+
+it("combines the local settings with the presets in the preset setting's list", async () => {
+  await expect(
+    getRobinMessages(
+      [
+        "The **boogeyman** is coming.",
+        "_The boogeywoman is coming._",
+        "Better stay sane and avoid the bony bits!"
+      ],
+      {
+        presets: ["ablism"],
+        enable: ["boogeyman-boogeywoman"],
+        ignore: ["boogeyman"]
+      }
+    )
+  ).resolves.toMatchInlineSnapshot(`
+          Array [
+            [2:6-2:17: \`boogeywoman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
+            [3:13-3:17: \`sane\` may be insensitive, use \`correct\`, \`adequate\`, \`sufficient\`, \`consistent\`, \`valid\`, \`coherent\`, \`sensible\`, \`reasonable\` instead],
+          ]
+        `);
+});
