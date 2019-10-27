@@ -82,3 +82,22 @@ Reilly understands the following properties in its `settings` argument:
   Currently supported rules:
 
   - [`retext-equality`](https://github.com/retextjs/retext-equality/blob/master/rules.md).
+
+## Related
+
+### Built with Reilly
+
+- [Reilly Slack Bot](https://github.com/erbridge/reilly-slack-bot) - A Slack bot
+  to check conversational English for insensitive language
+
+### Similar / Connected
+
+- [Alex](https://alexjs.com/) - Catch insensitive, inconsiderate writing
+- [`retext-equality`](https://github.com/retextjs/retext-equality) - Check for
+  possible insensitive, inconsiderate language
+- [`retext-passive`](https://github.com/retextjs/retext-passive) - Check passive
+  voice
+- [`retext-profanities`](https://github.com/retextjs/retext-profanities) - Check
+  for profane and vulgar wording
+- [`retext-simplify`](https://github.com/retextjs/retext-simplify) - Check
+  phrases for simpler alternatives
