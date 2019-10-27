@@ -8,11 +8,12 @@ import vfile, { VFile } from "vfile";
 
 export type RobinSettings = {
   enable?: string[];
+  ignore?: string[];
 };
 
 const robin = async (
   text: string,
-  { enable = [] }: RobinSettings = {}
+  { enable = [], ignore = [] }: RobinSettings = {}
 ): Promise<VFile> => {
   const processor = unified()
     .use(remarkParse)
@@ -20,7 +21,7 @@ const robin = async (
       remark2retext,
       unified()
         .use(english)
-        .use(equality)
+        .use(equality, { ignore })
     )
     .use(messageControl, {
       name: "robin",

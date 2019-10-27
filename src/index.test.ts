@@ -95,3 +95,27 @@ it("ignores all rules except those in the enable setting's list", async () => {
       "`boogey` instead"
   ]);
 });
+
+it("ignores rule violations matching phrases in the ignore setting's list", async () => {
+  const messages = await getStringMessagesViaRobin(
+    ["The **boogeyman** is coming.", "_The boogeywoman is coming._"],
+    {
+      enable: ["boogeyman-boogeywoman"],
+      ignore: ["boogeyman"]
+    }
+  );
+
+  expect(messages).toEqual([
+    "2:6-2:17: `boogeywoman` may be insensitive, use `boogeymonster`, " +
+      "`boogey` instead"
+  ]);
+});
+
+it("ignores rule violations matching phrases in the ignore setting's list, case insensitively", async () => {
+  const messages = await getStringMessagesViaRobin("He is coming.", {
+    enable: ["he-she"],
+    ignore: ["he"]
+  });
+
+  expect(messages).toEqual([]);
+});
