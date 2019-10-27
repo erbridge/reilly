@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsc",
     "build:clean": "npm run clean && npm run build",
-    "clean": "rm -r lib",
+    "clean": "rm -r lib || true",
     "test": "npm run build && jest",
     "prepare": "npm run build:clean"
   },
