@@ -1,8 +1,8 @@
 {
-  "name": "robin",
+  "name": "reilly",
   "version": "0.0.1",
   "description": "Check conversational English for insensitive language",
-  "repository": "erbridge/robin",
+  "repository": "erbridge/reilly",
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",

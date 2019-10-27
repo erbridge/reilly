@@ -11,15 +11,15 @@ import vfile, { VFile } from "vfile";
 
 import allPresets from "./presets";
 
-export type RobinSettings = {
+export type ReillySettings = {
   presets?: (keyof typeof allPresets)[];
   enable?: string[];
   ignore?: string[];
 };
 
-const robin = async (
+const reilly = async (
   text: string,
-  { presets = [], enable = [], ignore = [] }: RobinSettings = {}
+  { presets = [], enable = [], ignore = [] }: ReillySettings = {}
 ): Promise<VFile> => {
   if (presets && presets.length > 0) {
     const presetObjects = presets.map(preset => allPresets[preset]);
@@ -48,7 +48,7 @@ const robin = async (
         .use(equality, { ignore })
     )
     .use(messageControl, {
-      name: "robin",
+      name: "reilly",
       reset: enable && enable.length > 0,
       enable,
       source: ["retext-equality"]
@@ -62,4 +62,4 @@ const robin = async (
   return file;
 };
 
-export default robin;
+export default reilly;

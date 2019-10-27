@@ -19,5 +19,5 @@ and this project adheres to
 - Preset support
 - `ablism` preset
 
-[unreleased]: https://github.com/erbridge/robin/compare/v0.0.1...HEAD
-[0.0.1]: https://github.com/erbridge/robin/releases/tag/v0.0.1
+[unreleased]: https://github.com/erbridge/reilly/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/erbridge/reilly/releases/tag/v0.0.1

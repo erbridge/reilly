@@ -1,21 +1,21 @@
-import robin, { RobinSettings } from "./index";
+import reilly, { ReillySettings } from "./index";
 
-const getRobinMessages = async (
+const getReillyMessages = async (
   text: string | string[],
-  settings?: RobinSettings
+  settings?: ReillySettings
 ): Promise<string[]> => {
   if (Array.isArray(text)) {
     text = text.join("\n");
   }
 
-  const { messages } = await robin(text, settings);
+  const { messages } = await reilly(text, settings);
 
   return messages.map(message => message.message);
 };
 
 it("finds warnings in markdown", async () => {
   await expect(
-    getRobinMessages([
+    getReillyMessages([
       "The **boogeyman** is coming.",
       "_The boogeyman is coming._"
     ])
@@ -29,7 +29,7 @@ it("finds warnings in markdown", async () => {
 
 it("ignores code blocks in markdown", async () => {
   await expect(
-    getRobinMessages([
+    getReillyMessages([
       "The `boogeyman` is coming.",
       "",
       "```",
@@ -41,7 +41,7 @@ it("ignores code blocks in markdown", async () => {
 
 it("uses all rules when the enable setting is absent", async () => {
   await expect(
-    getRobinMessages([
+    getReillyMessages([
       "The **boogeyman** is coming.",
       "_The boogeyman is coming._"
     ])
@@ -55,7 +55,7 @@ it("uses all rules when the enable setting is absent", async () => {
 
 it("uses all rules when the enable setting is an empty list", async () => {
   await expect(
-    getRobinMessages(
+    getReillyMessages(
       ["The **boogeyman** is coming.", "_The boogeyman is coming._"],
       {
         enable: []
@@ -71,7 +71,7 @@ it("uses all rules when the enable setting is an empty list", async () => {
 
 it("ignores all rules except those in the enable setting's list", async () => {
   await expect(
-    getRobinMessages(
+    getReillyMessages(
       ["The **boogeyman** is coming.", "_The boogeyman is coming._"],
       {
         enable: ["boogeyman-boogeywoman"]
@@ -87,7 +87,7 @@ it("ignores all rules except those in the enable setting's list", async () => {
 
 it("ignores rule violations matching phrases in the ignore setting's list", async () => {
   await expect(
-    getRobinMessages(
+    getReillyMessages(
       ["The **boogeyman** is coming.", "_The boogeywoman is coming._"],
       {
         enable: ["boogeyman-boogeywoman"],
@@ -103,7 +103,7 @@ it("ignores rule violations matching phrases in the ignore setting's list", asyn
 
 it("ignores rule violations matching phrases in the ignore setting's list, case insensitively", async () => {
   await expect(
-    getRobinMessages("He is coming.", {
+    getReillyMessages("He is coming.", {
       enable: ["he-she"],
       ignore: ["he"]
     })
@@ -112,7 +112,7 @@ it("ignores rule violations matching phrases in the ignore setting's list, case 
 
 it("uses the presets in the preset setting's list", async () => {
   await expect(
-    getRobinMessages(
+    getReillyMessages(
       [
         "The **boogeyman** is coming.",
         "_The boogeywoman is coming._",
@@ -131,7 +131,7 @@ it("uses the presets in the preset setting's list", async () => {
 
 it("combines the local settings with the presets in the preset setting's list", async () => {
   await expect(
-    getRobinMessages(
+    getReillyMessages(
       [
         "The **boogeyman** is coming.",
         "_The boogeywoman is coming._",
