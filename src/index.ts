@@ -1,3 +1,5 @@
+import remarkParse from "remark-parse";
+import remark2retext from "remark-retext";
 import english from "retext-english";
 import equality from "retext-equality";
 import unified from "unified";
@@ -5,8 +7,14 @@ import vfile, { VFile } from "vfile";
 
 const robin = async (text: string): Promise<VFile> => {
   const processor = unified()
-    .use(english)
-    .use(equality);
+    .use(remarkParse)
+    .use(
+      remark2retext,
+      unified()
+        .use(english)
+        .use(equality)
+    );
+
   const file = vfile(text);
   const tree = processor.parse(file);
 

@@ -1,3 +1,24 @@
+declare module "remark-retext" {
+  import { Parser, Plugin, Processor, Transformer } from "unified";
+
+  export type Remark2RetextSettings = {
+    ignore?: string[];
+    source?: string[];
+  };
+
+  export interface Remark2Retext
+    extends Plugin<[(Remark2RetextSettings | Processor)?]> {
+    (
+      destination?: Parser | Processor,
+      options?: Remark2RetextSettings
+    ): Transformer;
+  }
+
+  const remark2retext: Remark2Retext;
+
+  export default remark2retext;
+}
+
 declare module "retext-english" {
   import { Parser, Plugin } from "unified";
 
