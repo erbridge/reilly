@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+- Better support for non-module JavaScript with `export =` syntax
+
 ## [0.0.1] - 2019-10-27
 
 ### Added

@@ -1,4 +1,4 @@
-import reilly, { ReillySettings } from "./index";
+import reilly, { ReillySettings } from "./reilly";
 
 const getReillyMessages = async (
   text: string | string[],
