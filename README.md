@@ -25,7 +25,12 @@ const settings = {
 reilly(text, settings);
 ```
 
-### Settings
+The default export is a function that take `text: string` as its first argument
+and [`settings?: ReillySettings`](#ReillySettings) as an optional second
+argument. It returns a promise to a [`VFile`](https://github.com/vfile/vfile)
+with messages set to include any issues found.
+
+### `ReillySettings`
 
 Reilly understands the following properties in its `settings` argument:
 
