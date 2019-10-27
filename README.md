@@ -66,7 +66,7 @@ Reilly understands the following properties in its `settings` argument:
 
   Currently supported rules:
 
-  - [`retext-equality`](https://github.com/retextjs/retext-equality/blob/master/rules.md).
+  - [`retext-equality`](https://github.com/retextjs/retext-equality/blob/master/rules.md)
 
 - `ignore?: string[]`
 
@@ -81,7 +81,7 @@ Reilly understands the following properties in its `settings` argument:
 
   Currently supported rules:
 
-  - [`retext-equality`](https://github.com/retextjs/retext-equality/blob/master/rules.md).
+  - [`retext-equality`](https://github.com/retextjs/retext-equality/blob/master/rules.md)
 
 ## Related
 
