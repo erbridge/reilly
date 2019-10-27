@@ -1,18 +1,16 @@
-import { VFileMessage } from "vfile-message";
-
 import robin, { RobinSettings } from "./index";
 
 const getRobinMessages = async (
   text: string | string[],
   settings?: RobinSettings
-): Promise<VFileMessage[]> => {
+): Promise<string[]> => {
   if (Array.isArray(text)) {
     text = text.join("\n");
   }
 
   const { messages } = await robin(text, settings);
 
-  return messages;
+  return messages.map(message => message.message);
 };
 
 it("finds warnings in markdown", async () => {
@@ -23,8 +21,8 @@ it("finds warnings in markdown", async () => {
     ])
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            [1:7-1:16: \`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
-            [2:6-2:15: \`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
           ]
         `);
 });
@@ -49,8 +47,8 @@ it("uses all rules when the enable setting is absent", async () => {
     ])
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            [1:7-1:16: \`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
-            [2:6-2:15: \`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
           ]
         `);
 });
@@ -65,8 +63,8 @@ it("uses all rules when the enable setting is an empty list", async () => {
     )
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            [1:7-1:16: \`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
-            [2:6-2:15: \`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
           ]
         `);
 });
@@ -81,8 +79,8 @@ it("ignores all rules except those in the enable setting's list", async () => {
     )
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            [1:7-1:16: \`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
-            [2:6-2:15: \`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
           ]
         `);
 });
@@ -98,7 +96,7 @@ it("ignores rule violations matching phrases in the ignore setting's list", asyn
     )
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            [2:6-2:17: \`boogeywoman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
+            "\`boogeywoman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
           ]
         `);
 });
@@ -126,7 +124,7 @@ it("uses the presets in the preset setting's list", async () => {
     )
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            [3:13-3:17: \`sane\` may be insensitive, use \`correct\`, \`adequate\`, \`sufficient\`, \`consistent\`, \`valid\`, \`coherent\`, \`sensible\`, \`reasonable\` instead],
+            "\`sane\` may be insensitive, use \`correct\`, \`adequate\`, \`sufficient\`, \`consistent\`, \`valid\`, \`coherent\`, \`sensible\`, \`reasonable\` instead",
           ]
         `);
 });
@@ -147,8 +145,8 @@ it("combines the local settings with the presets in the preset setting's list", 
     )
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            [2:6-2:17: \`boogeywoman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead],
-            [3:13-3:17: \`sane\` may be insensitive, use \`correct\`, \`adequate\`, \`sufficient\`, \`consistent\`, \`valid\`, \`coherent\`, \`sensible\`, \`reasonable\` instead],
+            "\`boogeywoman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`sane\` may be insensitive, use \`correct\`, \`adequate\`, \`sufficient\`, \`consistent\`, \`valid\`, \`coherent\`, \`sensible\`, \`reasonable\` instead",
           ]
         `);
 });
