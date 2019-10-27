@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- `condescension` preset
+
 ### Changed
 
 - Internal refactoring

@@ -11,10 +11,13 @@ import vfile, { VFile } from "vfile";
 
 import allPresets from "./presets";
 
-export type ReillySettings = {
-  presets?: (keyof typeof allPresets)[];
+export type ReillyPreset = {
   enable?: string[];
   ignore?: string[];
+};
+
+export type ReillySettings = ReillyPreset & {
+  presets?: (keyof typeof allPresets)[];
 };
 
 const parseSettings = ({
@@ -23,7 +26,9 @@ const parseSettings = ({
   ignore = []
 }: ReillySettings = {}): ReillySettings => {
   if (presets && presets.length > 0) {
-    const presetObjects = presets.map(preset => allPresets[preset]);
+    const presetObjects = presets.map(
+      preset => allPresets[preset] as ReillyPreset
+    );
 
     enable = uniq(
       compact([
