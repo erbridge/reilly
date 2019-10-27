@@ -1,3 +1,26 @@
+declare module "remark-message-control" {
+  import { Parser, Plugin, Processor, Transformer } from "unified";
+
+  export type MessageControlSettings = {
+    name: string;
+    marker?: Function;
+    test?: string[];
+    known?: string[];
+    reset?: boolean;
+    enable?: string[];
+    disable?: string[];
+    source?: string | string[];
+  };
+
+  export interface MessageControl extends Plugin<[MessageControlSettings]> {
+    (options: MessageControlSettings): Transformer;
+  }
+
+  const messageControl: MessageControl;
+
+  export default messageControl;
+}
+
 declare module "remark-retext" {
   import { Parser, Plugin, Processor, Transformer } from "unified";
 
