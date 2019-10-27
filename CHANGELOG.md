@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Fixed
+
+- `ablism` preset is renamed to `ableism`
+
 ## [0.0.2] - 2019-10-27
 
 ### Changed

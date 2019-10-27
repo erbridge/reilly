@@ -1,3 +1,3 @@
-import ablism from "./ablism.json";
+import ableism from "./ableism.json";
 
-export default { ablism };
+export default { ableism };

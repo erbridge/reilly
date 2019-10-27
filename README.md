@@ -17,7 +17,7 @@ const reilly = require("reilly");
 
 const text = "The **boogeyman** is coming.";
 const settings = {
-  presets: ["ablism"],
+  presets: ["ableism"],
   enable: ["boogeyman-boogeywoman"],
   ignore: ["boogeyman"]
 };
@@ -34,7 +34,7 @@ Reilly understands the following properties in its `settings` argument:
   For example:
 
   ```js
-  reilly(text, { presets: ["ablism"] });
+  reilly(text, { presets: ["ableism"] });
   ```
 
   Reilly comes with a number of [presets](src/presets/) ready to use. Provide an

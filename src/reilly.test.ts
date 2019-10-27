@@ -119,7 +119,7 @@ it("uses the presets in the preset setting's list", async () => {
         "Better stay sane and avoid the bony bits!"
       ],
       {
-        presets: ["ablism"]
+        presets: ["ableism"]
       }
     )
   ).resolves.toMatchInlineSnapshot(`
@@ -138,7 +138,7 @@ it("combines the local settings with the presets in the preset setting's list", 
         "Better stay sane and avoid the bony bits!"
       ],
       {
-        presets: ["ablism"],
+        presets: ["ableism"],
         enable: ["boogeyman-boogeywoman"],
         ignore: ["boogeyman"]
       }
