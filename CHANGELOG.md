@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Removed
+
+- Remove `just` from the `condescension` preset
+
 ## [0.0.4] - 2019-10-27
 
 ### Added
