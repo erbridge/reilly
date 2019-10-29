@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+- Switch from `typings` to `types` for specifying the type declarations
+
 ## [0.0.5] - 2019-10-28
 
 ### Removed
