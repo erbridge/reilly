@@ -39,7 +39,7 @@
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.0",
     "ts-jest": "^24.1.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.3"
   },
   "husky": {
     "pre-commit": "pretty-quick --staged"
