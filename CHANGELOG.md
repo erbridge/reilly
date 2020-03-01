@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.0.0] - 2020-03-01
+
 ### Changed
 
 - Drop support for Node.js < 10
@@ -58,7 +60,8 @@ and this project adheres to
 - Preset support
 - `ablism` preset
 
-[unreleased]: https://github.com/erbridge/reilly/compare/v0.0.6...HEAD
+[unreleased]: https://github.com/erbridge/reilly/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/erbridge/reilly/compare/v0.0.6...v1.0.0
 [0.0.6]: https://github.com/erbridge/reilly/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/erbridge/reilly/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/erbridge/reilly/compare/v0.0.3...v0.0.4
