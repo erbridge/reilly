@@ -11,6 +11,7 @@ and this project adheres to
 ### Changed
 
 - Drop support for Node.js < 10
+- Bump `retext-equality` from `4.2.0` to `4.5.0`
 
 ## [0.0.6] - 2019-10-29
 

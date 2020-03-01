@@ -21,8 +21,8 @@ it("finds warnings in markdown", async () => {
     ])
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
-            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\` instead",
           ]
         `);
 });
@@ -47,8 +47,8 @@ it("uses all rules when the enable setting is absent", async () => {
     ])
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
-            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\` instead",
           ]
         `);
 });
@@ -63,8 +63,8 @@ it("uses all rules when the enable setting is an empty list", async () => {
     )
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
-            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\` instead",
           ]
         `);
 });
@@ -79,8 +79,8 @@ it("ignores all rules except those in the enable setting's list", async () => {
     )
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
-            "\`boogeyman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\` instead",
+            "\`boogeyman\` may be insensitive, use \`boogeymonster\` instead",
           ]
         `);
 });
@@ -96,7 +96,7 @@ it("ignores rule violations matching phrases in the ignore setting's list", asyn
     )
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            "\`boogeywoman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`boogeywoman\` may be insensitive, use \`boogeymonster\` instead",
           ]
         `);
 });
@@ -145,7 +145,7 @@ it("combines the local settings with the presets in the preset setting's list", 
     )
   ).resolves.toMatchInlineSnapshot(`
           Array [
-            "\`boogeywoman\` may be insensitive, use \`boogeymonster\`, \`boogey\` instead",
+            "\`boogeywoman\` may be insensitive, use \`boogeymonster\` instead",
             "\`sane\` may be insensitive, use \`correct\`, \`adequate\`, \`sufficient\`, \`consistent\`, \`valid\`, \`coherent\`, \`sensible\`, \`reasonable\` instead",
           ]
         `);
