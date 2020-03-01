@@ -4,8 +4,6 @@ Check conversational English for insensitive language.
 
 Inspired by [Alex](https://alexjs.com/), but with more opinions and less noise.
 
-**Warning: Reilly is still in alpha. No promises of API stability are made.**
-
 ## Installation
 
 ```sh
