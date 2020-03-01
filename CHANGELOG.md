@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+- Drop support for Node.js < 10
+
 ## [0.0.6] - 2019-10-29
 
 ### Changed
