@@ -28,7 +28,7 @@
     "retext-english": "^3.0.4",
     "retext-equality": "^4.5.0",
     "unified": "^8.4.2",
-    "vfile": "^4.1.1"
+    "vfile": "^4.2.1"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
