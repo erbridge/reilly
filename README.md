@@ -19,7 +19,7 @@ const text = "The **boogeyman** is coming.";
 const settings = {
   presets: ["ableism"],
   enable: ["boogeyman-boogeywoman"],
-  ignore: ["boogeyman"]
+  ignore: ["boogeyman"],
 };
 
 reilly(text, settings);

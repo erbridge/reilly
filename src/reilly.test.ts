@@ -10,14 +10,14 @@ const getReillyMessages = async (
 
   const { messages } = await reilly(text, settings);
 
-  return messages.map(message => message.message);
+  return messages.map((message) => message.message);
 };
 
 it("finds warnings in markdown", async () => {
   await expect(
     getReillyMessages([
       "The **boogeyman** is coming.",
-      "_The boogeyman is coming._"
+      "_The boogeyman is coming._",
     ])
   ).resolves.toMatchInlineSnapshot(`
           Array [
@@ -34,7 +34,7 @@ it("ignores code blocks in markdown", async () => {
       "",
       "```",
       "The boogeyman is coming.",
-      "```"
+      "```",
     ])
   ).resolves.toMatchInlineSnapshot(`Array []`);
 });
@@ -43,7 +43,7 @@ it("uses all rules when the enable setting is absent", async () => {
   await expect(
     getReillyMessages([
       "The **boogeyman** is coming.",
-      "_The boogeyman is coming._"
+      "_The boogeyman is coming._",
     ])
   ).resolves.toMatchInlineSnapshot(`
           Array [
@@ -58,7 +58,7 @@ it("uses all rules when the enable setting is an empty list", async () => {
     getReillyMessages(
       ["The **boogeyman** is coming.", "_The boogeyman is coming._"],
       {
-        enable: []
+        enable: [],
       }
     )
   ).resolves.toMatchInlineSnapshot(`
@@ -74,7 +74,7 @@ it("ignores all rules except those in the enable setting's list", async () => {
     getReillyMessages(
       ["The **boogeyman** is coming.", "_The boogeyman is coming._"],
       {
-        enable: ["boogeyman-boogeywoman"]
+        enable: ["boogeyman-boogeywoman"],
       }
     )
   ).resolves.toMatchInlineSnapshot(`
@@ -91,7 +91,7 @@ it("ignores rule violations matching phrases in the ignore setting's list", asyn
       ["The **boogeyman** is coming.", "_The boogeywoman is coming._"],
       {
         enable: ["boogeyman-boogeywoman"],
-        ignore: ["boogeyman"]
+        ignore: ["boogeyman"],
       }
     )
   ).resolves.toMatchInlineSnapshot(`
@@ -105,7 +105,7 @@ it("ignores rule violations matching phrases in the ignore setting's list, case 
   await expect(
     getReillyMessages("He is coming.", {
       enable: ["he-she"],
-      ignore: ["he"]
+      ignore: ["he"],
     })
   ).resolves.toMatchInlineSnapshot(`Array []`);
 });
@@ -116,10 +116,10 @@ it("uses the presets in the preset setting's list", async () => {
       [
         "The **boogeyman** is coming.",
         "_The boogeywoman is coming._",
-        "Better stay sane and avoid the bony bits!"
+        "Better stay sane and avoid the bony bits!",
       ],
       {
-        presets: ["ableism"]
+        presets: ["ableism"],
       }
     )
   ).resolves.toMatchInlineSnapshot(`
@@ -135,12 +135,12 @@ it("combines the local settings with the presets in the preset setting's list", 
       [
         "The **boogeyman** is coming.",
         "_The boogeywoman is coming._",
-        "Better stay sane and avoid the bony bits!"
+        "Better stay sane and avoid the bony bits!",
       ],
       {
         presets: ["ableism"],
         enable: ["boogeyman-boogeywoman"],
-        ignore: ["boogeyman"]
+        ignore: ["boogeyman"],
       }
     )
   ).resolves.toMatchInlineSnapshot(`

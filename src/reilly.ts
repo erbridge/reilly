@@ -23,24 +23,24 @@ export type ReillySettings = ReillyPreset & {
 const parseSettings = ({
   presets = [],
   enable = [],
-  ignore = []
+  ignore = [],
 }: ReillySettings = {}): ReillySettings => {
   if (presets && presets.length > 0) {
     const presetObjects = presets.map(
-      preset => allPresets[preset] as ReillyPreset
+      (preset) => allPresets[preset] as ReillyPreset
     );
 
     enable = uniq(
       compact([
-        ...flatten(presetObjects.map(preset => preset.enable)),
-        ...enable
+        ...flatten(presetObjects.map((preset) => preset.enable)),
+        ...enable,
       ])
     );
 
     ignore = uniq(
       compact([
-        ...flatten(presetObjects.map(preset => preset.ignore)),
-        ...ignore
+        ...flatten(presetObjects.map((preset) => preset.ignore)),
+        ...ignore,
       ])
     );
   }
@@ -50,21 +50,16 @@ const parseSettings = ({
 
 const makeMarkdownProcessor = ({
   enable,
-  ignore
+  ignore,
 }: ReillySettings): Processor => {
   return unified()
     .use(remarkParse)
-    .use(
-      remark2retext,
-      unified()
-        .use(english)
-        .use(equality, { ignore })
-    )
+    .use(remark2retext, unified().use(english).use(equality, { ignore }))
     .use(messageControl, {
       name: "reilly",
       reset: enable && enable.length > 0,
       enable,
-      source: ["retext-equality"]
+      source: ["retext-equality"],
     });
 };
 
