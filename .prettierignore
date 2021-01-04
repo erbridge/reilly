@@ -3,5 +3,6 @@ node_modules/
 coverage/
 .DS_Store
 .gitignore
+.node-version
 .prettierignore
 LICENCE
