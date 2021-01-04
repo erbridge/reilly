@@ -21,7 +21,7 @@
     "prepare": "npm run build:clean"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "remark-message-control": "^5.0.0",
     "remark-parse": "^7.0.2",
     "remark-retext": "^3.1.3",
