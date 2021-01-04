@@ -17,7 +17,9 @@
     "build": "tsc",
     "build:clean": "npm run clean && npm run build",
     "clean": "rm -r lib || true",
-    "test": "npm run build && jest",
+    "test": "npm run build:clean && npm run lint && jest",
+    "lint": "prettier --check '**/**'",
+    "lint:fix": "prettier --write '**/**'",
     "prepare": "npm run build:clean"
   },
   "dependencies": {

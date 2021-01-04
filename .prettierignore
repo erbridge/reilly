@@ -1,0 +1,7 @@
+lib/
+node_modules/
+coverage/
+.DS_Store
+.gitignore
+.prettierignore
+LICENCE
