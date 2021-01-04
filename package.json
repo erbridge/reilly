@@ -33,7 +33,7 @@
     "vfile": "^4.2.1"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.4",
+    "@types/jest": "^26.0.19",
     "@types/lodash": "^4.14.167",
     "@types/node": "^13.9.1",
     "husky": "^4.3.6",
