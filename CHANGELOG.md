@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- "dummy" to the `ableism` preset
+
 ## [1.0.0] - 2020-03-01
 
 ### Changed
