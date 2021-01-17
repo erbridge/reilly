@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.1.0] - 2021-01-17
+
 ### Added
 
 - "dummy" to the `ableism` preset
@@ -64,7 +66,8 @@ and this project adheres to
 - Preset support
 - `ablism` preset
 
-[unreleased]: https://github.com/erbridge/reilly/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/erbridge/reilly/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/erbridge/reilly/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/erbridge/reilly/compare/v0.0.6...v1.0.0
 [0.0.6]: https://github.com/erbridge/reilly/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/erbridge/reilly/compare/v0.0.4...v0.0.5
