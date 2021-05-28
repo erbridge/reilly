@@ -27,7 +27,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Cache Node dependencies
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.6
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ matrix.node }}-${{
