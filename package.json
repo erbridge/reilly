@@ -30,7 +30,7 @@
     "retext-english": "^3.0.4",
     "retext-equality": "^5.7.0",
     "unified": "^9.2.1",
-    "vfile": "^4.2.1"
+    "vfile": "^5.1.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
