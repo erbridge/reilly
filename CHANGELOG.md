@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.0.0] - 2021-10-24
+
 ### Changed
 
 - Drop support for Node.js < 14
@@ -76,7 +78,8 @@ and this project adheres to
 - Preset support
 - `ablism` preset
 
-[unreleased]: https://github.com/erbridge/reilly/compare/v1.1.0...HEAD
+[unreleased]: https://github.com/erbridge/reilly/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/erbridge/reilly/compare/v1.1.0...v2.0.0
 [1.1.0]: https://github.com/erbridge/reilly/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/erbridge/reilly/compare/v0.0.6...v1.0.0
 [0.0.6]: https://github.com/erbridge/reilly/compare/v0.0.5...v0.0.6
