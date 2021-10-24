@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+- Drop support for Node.js < 14
+
 ## [1.1.0] - 2021-01-17
 
 ### Added
