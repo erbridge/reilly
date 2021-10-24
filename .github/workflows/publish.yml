@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.5
+      - uses: nodenv/actions/setup-nodenv@v2
+      - run: npm ci
+      - run: npm run build
+      - uses: JS-DevTools/npm-publish@v1.4.3
+        with:
+          token: ${{ secrets.NPM_ACCESS_TOKEN }}
