@@ -26,15 +26,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Cache Node dependencies
-        uses: actions/cache@v2.1.4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ matrix.node }}-${{
-            hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node }}-
-
       - name: Install Node dependencies
         run: npm install
 
