@@ -11,12 +11,18 @@ and this project adheres to
 ### Changed
 
 - Drop support for Node.js < 14
+- Bump `retext-english` from `3.0.4` to `4.1.0`
+- Bump `retext-equality` from `5.6.0` to `6.4.0`
 
 ## [1.1.0] - 2021-01-17
 
 ### Added
 
 - "dummy" to the `ableism` preset
+
+### Changed
+
+- Bump `retext-equality` from `4.5.0` to `5.6.0`
 
 ## [1.0.0] - 2020-03-01
 

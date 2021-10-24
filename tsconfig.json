@@ -11,7 +11,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "strict": true
+    "strict": true,
+    "allowJs": true
   },
   "include": ["src"],
   "exclude": ["**/*.test.*"]

@@ -1,5 +1,6 @@
 module.exports = {
-  preset: "ts-jest",
+  preset: "ts-jest/presets/js-with-ts",
+  transformIgnorePatterns: [],
   testEnvironment: "node",
   collectCoverage: true,
   collectCoverageFrom: ["<rootDir>/src/**/*.ts", "!**/*.d.ts"],

@@ -24,13 +24,13 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "remark-message-control": "^6.0.0",
-    "remark-parse": "^9.0.0",
-    "remark-retext": "^4.0.0",
-    "retext-english": "^3.0.4",
-    "retext-equality": "^5.7.0",
-    "unified": "^9.2.1",
-    "vfile": "^4.2.1"
+    "remark-message-control": "^7.1.0",
+    "remark-parse": "^10.0.0",
+    "remark-retext": "^5.0.0",
+    "retext-english": "^4.1.0",
+    "retext-equality": "^6.4.0",
+    "unified": "^10.1.0",
+    "vfile": "^5.1.1"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",

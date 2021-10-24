@@ -6,9 +6,8 @@ import remarkParse from "remark-parse";
 import remark2retext from "remark-retext";
 import english from "retext-english";
 import equality from "retext-equality";
-import unified, { Processor } from "unified";
-import vfile, { VFile } from "vfile";
-
+import { Processor, unified } from "unified";
+import { VFile } from "vfile";
 import allPresets from "./presets";
 
 export type ReillyPreset = {
@@ -69,7 +68,7 @@ const reilly = async (
 ): Promise<VFile> => {
   const { enable, ignore } = parseSettings(settings);
   const processor = makeMarkdownProcessor({ enable, ignore });
-  const file = vfile(text);
+  const file = new VFile(text);
   const tree = processor.parse(file);
 
   await processor.run(tree, file);
