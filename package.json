@@ -26,7 +26,7 @@
     "lodash": "^4.17.21",
     "remark-message-control": "^7.1.0",
     "remark-parse": "^10.0.0",
-    "remark-retext": "^5.0.0",
+    "remark-retext": "^5.0.1",
     "retext-english": "^4.1.0",
     "retext-equality": "^6.4.0",
     "unified": "^10.1.0",
