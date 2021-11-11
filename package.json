@@ -28,7 +28,7 @@
     "remark-parse": "^10.0.0",
     "remark-retext": "^5.0.0",
     "retext-english": "^4.1.0",
-    "retext-equality": "^6.4.0",
+    "retext-equality": "^6.5.0",
     "unified": "^10.1.0",
     "vfile": "^5.1.1"
   },
