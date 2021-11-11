@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "remark-message-control": "^7.1.0",
+    "remark-message-control": "^7.1.1",
     "remark-parse": "^10.0.0",
     "remark-retext": "^5.0.0",
     "retext-english": "^4.1.0",
